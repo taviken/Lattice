@@ -6,8 +6,12 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <stdexcept>
+#include <algorithm>
 #include <vector>
 #include <cstring>
+#include <cstdlib>
+#include <cstdint>
+#include <limits>
 #include <optional>
 #include <set>
 
@@ -20,6 +24,13 @@ struct QueueFamilyIndices
     {
         return graphicsFamily.has_value() && presentFamily.has_value();
     }
+};
+
+struct SwapChainSupportDetails
+{
+    VkSurfaceCapabilitiesKHR capabilities;
+    std::vector<VkSurfaceFormatKHR> formats;
+    std::vector<VkPresentModeKHR> presentModes;
 };
 
 class Window
@@ -45,19 +56,32 @@ private:
     VkQueue graphicsQueue;
     VkQueue presentQueue;
 
+    VkSwapchainKHR swapChain;
+    std::vector<VkImage> swapChainImages;
+    VkFormat swapChainImageFormat;
+    VkExtent2D swapChainExtent;
+    std::vector<VkImageView> swapChainImageViews;
+
     void populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT &createInfo);
     void setupDebugMessenger();
+    void createSurface();
+    void pickPhysicalDevice();
+    void createLogicalDevice();
+    void createSwapChain();
+    void createImageViews();
+    VkSurfaceFormatKHR chooseSwapSurfaceFormat(const std::vector<VkSurfaceFormatKHR> &availableFormats);
+    VkPresentModeKHR chooseSwapPresentMode(const std::vector<VkPresentModeKHR> &availablePresentModes);
+    VkExtent2D chooseSwapExtent(const VkSurfaceCapabilitiesKHR &capabilities);
+    SwapChainSupportDetails querySwapChainSupport(VkPhysicalDevice device);
+    bool isDeviceSuitable(VkPhysicalDevice device);
+    bool checkDeviceExtensionSupport(VkPhysicalDevice device);
+    QueueFamilyIndices findQueueFamilies(VkPhysicalDevice device);
     std::vector<const char *> getRequiredExtensions();
     bool checkValidationLayerSupport();
     static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity,
                                                         VkDebugUtilsMessageTypeFlagsEXT messageType,
                                                         const VkDebugUtilsMessengerCallbackDataEXT *pCallbackData,
                                                         void *pUserData);
-    void pickPhysicalDevice();
-    bool isDeviceSuitable(VkPhysicalDevice device);
-    QueueFamilyIndices findQueueFamilies(VkPhysicalDevice device);
-    void createLogicalDevice();
-    void createSurface();
 };
 
 #endif
