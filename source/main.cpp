@@ -2,7 +2,7 @@
 
 // #include "source/glfw/include/glfw3.h"
 // #include "glfw/include/GLFW/glfw3.h"
-#include <glfw/glfw3.h>
+#include <GLFW/glfw3.h>
 
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
