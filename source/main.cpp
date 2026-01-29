@@ -1,7 +1,5 @@
 #define GLFW_INCLUDE_VULKAN
 
-// #include "source/glfw/include/glfw3.h"
-// #include "glfw/include/GLFW/glfw3.h"
 #include <GLFW/glfw3.h>
 
 #define GLM_FORCE_RADIANS
@@ -36,5 +34,3 @@ int main() {
 
     return 0;
 }
-
-// C:\VulkanSDK\1.4.335.0
