@@ -4,6 +4,10 @@ project(Lattice VERSION 0.1.0 LANGUAGES CXX)
 
 find_package(Vulkan REQUIRED)
 
+set(CMAKE_CXX_STANDARD 20)
+# Require the specified standard, preventing fallback to older versions
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 # Disable building GLFW examples, tests, and docs
 set(GLFW_BUILD_EXAMPLES OFF CACHE INTERNAL "")
 set(GLFW_BUILD_TESTS OFF CACHE INTERNAL "")
