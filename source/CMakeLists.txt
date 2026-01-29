@@ -11,7 +11,15 @@ set(GLFW_BUILD_DOCS OFF CACHE INTERNAL "")
 # Add the GLFW source directory
 add_subdirectory(libs/glfw)
 
-add_executable(LatticeApp main.cpp)
-target_link_libraries(LatticeApp PUBLIC Vulkan::Vulkan)
+
+file(GLOB SOURCES src/*.cpp )
+file(GLOB HEADERS header/*.h )
+
+
+
+add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+target_include_directories(${PROJECT_NAME} PRIVATE "header")
+
+target_link_libraries(${PROJECT_NAME} PUBLIC Vulkan::Vulkan)
 # Link your executable against the glfw target and OpenGL library
-target_link_libraries(LatticeApp PRIVATE glfw)
+target_link_libraries(${PROJECT_NAME} PRIVATE glfw)

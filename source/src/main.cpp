@@ -2,10 +2,10 @@
 #include <stdexcept>
 #include <cstdlib>
 
-#include "window/HelloTrangleApplication.hpp"
+#include "Window.h"
 
 int main() {
-    HelloTriangleApplication app;
+    Window app;
 
     try {
         app.run();
