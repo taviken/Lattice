@@ -4,12 +4,14 @@
 
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
+#include <iostream>
 #include <stdexcept>
+#include <vector>
+#include <cstring>
+#include <cstdlib>
 
-const uint32_t WIDTH = 800;
-const uint32_t HEIGHT = 600;
-
-class Window {
+class Window
+{
 public:
     void run();
     void initWindow();
@@ -18,11 +20,20 @@ public:
     void cleanup();
     void createInstance();
 
-
 private:
-    GLFWwindow* window;
-    VkInstance instance;
+    GLFWwindow *window;
 
-    
+    VkInstance instance;
+    VkDebugUtilsMessengerEXT debugMessenger;
+
+    void populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT &createInfo);
+    void setupDebugMessenger();
+    std::vector<const char *> getRequiredExtensions();
+    bool checkValidationLayerSupport();
+    static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity,
+                                                        VkDebugUtilsMessageTypeFlagsEXT messageType,
+                                                        const VkDebugUtilsMessengerCallbackDataEXT *pCallbackData,
+                                                        void *pUserData);
 };
+
 #endif
