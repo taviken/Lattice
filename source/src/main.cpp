@@ -1,11 +1,11 @@
 #include <iostream>
 #include <stdexcept>
 
-#include "Window.h"
+#include "App.h"
 
 int main()
 {
-    Window app;
+    App app;
 
     try
     {
