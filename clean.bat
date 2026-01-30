@@ -11,3 +11,24 @@ IF EXIST %FOLDER_PATH% (
     ECHO %FOLDER_PATH% not found.
 )
 
+SET FOLDER_PATH="bin/Debug"
+
+REM --- Check if the folder exists before attempting deletion ---
+IF EXIST %FOLDER_PATH% (
+    REM Use RD /S /Q to remove the directory and all its contents
+    RD /S /Q %FOLDER_PATH%
+    ECHO %FOLDER_PATH% has been deleted.
+) ELSE (
+    ECHO %FOLDER_PATH% not found.
+)
+
+SET FOLDER_PATH="bin/Release"
+
+REM --- Check if the folder exists before attempting deletion ---
+IF EXIST %FOLDER_PATH% (
+    REM Use RD /S /Q to remove the directory and all its contents
+    RD /S /Q %FOLDER_PATH%
+    ECHO %FOLDER_PATH% has been deleted.
+) ELSE (
+    ECHO %FOLDER_PATH% not found.
+)

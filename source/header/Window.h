@@ -14,6 +14,10 @@
 #include <limits>
 #include <optional>
 #include <set>
+#include <fstream>
+#include <filesystem>
+
+namespace fs = std::filesystem;
 
 struct QueueFamilyIndices
 {
@@ -82,6 +86,9 @@ private:
                                                         VkDebugUtilsMessageTypeFlagsEXT messageType,
                                                         const VkDebugUtilsMessengerCallbackDataEXT *pCallbackData,
                                                         void *pUserData);
+    void createGraphicsPipeline();
+    static std::vector<char> readFile(const std::string &filename);
+    VkShaderModule createShaderModule(const std::vector<char> &code);
 };
 
 #endif

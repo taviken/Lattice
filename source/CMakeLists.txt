@@ -19,7 +19,7 @@ add_subdirectory(libs/glfw)
 file(GLOB SOURCES src/*.cpp )
 file(GLOB HEADERS header/*.h )
 
-
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../bin)
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 target_include_directories(${PROJECT_NAME} PRIVATE "header")
