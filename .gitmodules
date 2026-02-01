@@ -4,3 +4,6 @@
 [submodule "source/libs/glfw"]
 	path = source/libs/glfw
 	url = https://github.com/glfw/glfw.git
+[submodule "source/libs/pybind11"]
+	path = source/libs/pybind11
+	url = https://github.com/pybind/pybind11.git
