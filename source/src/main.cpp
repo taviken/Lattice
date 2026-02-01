@@ -1,4 +1,6 @@
-
+#ifdef _WIN32
+#include <windows.h>
+#endif
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
@@ -23,8 +25,13 @@ const char *fragmentShaderSource = "#version 330 core\n"
                                    "{\n"
                                    "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
                                    "}\n\0";
+#ifdef _WIN32
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine, int nCmdShow)
+
+#else
 
 int main()
+#endif
 {
     // glfw: initialize and configure
     // ------------------------------

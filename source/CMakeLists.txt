@@ -17,13 +17,13 @@ file(GLOB HEADERS header/*.h )
 # spit out exes in bin dir
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../bin)
 
-add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+add_executable(${PROJECT_NAME} WIN32 ${SOURCES} ${HEADERS})
 target_include_directories(${PROJECT_NAME} PRIVATE "header")
 
 # # Disable building GLFW examples, tests, and docs
-# set(GLFW_BUILD_EXAMPLES OFF CACHE INTERNAL "")
-# set(GLFW_BUILD_TESTS OFF CACHE INTERNAL "")
-# set(GLFW_BUILD_DOCS OFF CACHE INTERNAL "")
+set(GLFW_BUILD_EXAMPLES OFF CACHE INTERNAL "")
+set(GLFW_BUILD_TESTS OFF CACHE INTERNAL "")
+set(GLFW_BUILD_DOCS OFF CACHE INTERNAL "")
 # Add the GLFW source directory
 add_subdirectory(libs/glfw)
 target_link_libraries(${PROJECT_NAME} PRIVATE glfw)
