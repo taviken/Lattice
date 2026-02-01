@@ -17,7 +17,8 @@ file(GLOB HEADERS header/*.h )
 # spit out exes in bin dir
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../bin)
 
-add_executable(${PROJECT_NAME} WIN32 ${SOURCES} ${HEADERS})
+# add_executable(${PROJECT_NAME} WIN32 ${SOURCES} ${HEADERS}) # use this for conslole app, figure out cmake presets later
+add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 target_include_directories(${PROJECT_NAME} PRIVATE "header")
 
 # # Disable building GLFW examples, tests, and docs
