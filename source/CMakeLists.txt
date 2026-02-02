@@ -8,13 +8,7 @@ set(CMAKE_CXX_STANDARD 20)
 # Require the specified standard, preventing fallback to older versions
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
-if(Python3_FOUND)
-    message(STATUS "Found Python 3: ${Python3_EXECUTABLE}")
-    message(STATUS "Python 3 Libraries: ${Python3_LIBRARIES}")
-    include_directories(${Python3_INCLUDE_DIRS})
-endif()
-add_subdirectory(libs/pybind11)
+
 
 
 
@@ -37,11 +31,6 @@ set(GLFW_BUILD_DOCS OFF CACHE INTERNAL "")
 add_subdirectory(libs/glfw)
 target_link_libraries(${PROJECT_NAME} PRIVATE glfw)
 
-# add pybind11
-target_link_libraries(${PROJECT_NAME} PUBLIC pybind11::embed)
-target_link_libraries(${PROJECT_NAME} PUBLIC "C:/Program Files/Python314/libs/python314_d.lib")
-target_link_libraries(${PROJECT_NAME} PUBLIC "C:/Program Files/Python314/libs/python314.lib")
-# target_link_libraries(${PROJECT_NAME} PUBLIC ${Python3_LIBRARIES}) # this needs work, debug build can't find debug library
 
 
 # add glad stuff

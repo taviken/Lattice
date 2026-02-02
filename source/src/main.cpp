@@ -6,8 +6,6 @@
 
 #include <iostream>
 
-#include "pybound.h"
-
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void processInput(GLFWwindow *window);
 
@@ -35,10 +33,6 @@ const char *fragmentShaderSource = "#version 450 core\n"
 int main()
 // #endif
 {
-
-    // python stuff
-    // PythonInterpreter PythonInterpreter;
-    // PythonInterpreter.runPythonClassExample();
 
     // glfw: initialize and configure
     // ------------------------------
