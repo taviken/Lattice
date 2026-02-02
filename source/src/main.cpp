@@ -1,10 +1,12 @@
-#if defined(_WIN32) && defined(NDEBUG)
-#include <windows.h>
-#endif
+// #if defined(_WIN32) && defined(NDEBUG)
+// #include <windows.h>
+// #endif
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #include <iostream>
+
+#include "pybound.h"
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void processInput(GLFWwindow *window);
@@ -25,14 +27,19 @@ const char *fragmentShaderSource = "#version 450 core\n"
                                    "{\n"
                                    "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
                                    "}\n\0";
-#if defined(_WIN32) && defined(NDEBUG)
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine, int nCmdShow)
+// #if defined(_WIN32) && defined(NDEBUG)
+// int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine, int nCmdShow)
 
-#else
+// #else
 
 int main()
-#endif
+// #endif
 {
+
+    // python stuff
+    // PythonInterpreter PythonInterpreter;
+    // PythonInterpreter.runPythonClassExample();
+
     // glfw: initialize and configure
     // ------------------------------
     glfwInit();
