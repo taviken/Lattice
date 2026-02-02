@@ -1,5 +1,4 @@
 call setup.bat
 cd build
-cmake  ../source
-
+cmake -DCMAKE_BUILD_TYPE=Debug ../source 
 cmake --build .
